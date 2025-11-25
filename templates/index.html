@@ -1,66 +1,27 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+{% extends "layout.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <title>Tech Store</title>
-    <link rel="stylesheet" href="/static/style.css">
-</head>
+{% block content %}
+<div class="container">
+    <h1>Produtos</h1>
 
-<body>
-
-    <header>
-        <h1 class="logo">Tech Store</h1>
-    </header>
-
-    <div class="container">
-
-        <!-- LISTA DE PRODUTOS -->
-        <section class="products">
-            <h2>Produtos</h2>
-
-            {% for product in products %}
-            <div class="product-card">
-                <h3>{{ product.name }}</h3>
-                <p class="price">R$ {{ "%.2f"|format(product.price) }}</p>
-                <form action="/add_to_cart/{{ product.id }}" method="POST">
-                    <button class="btn">Adicionar ao Carrinho</button>
-                </form>
-            </div>
-            {% endfor %}
-        </section>
-
-        <!-- CARRINHO -->
-        <section class="cart">
-            <h2>Carrinho</h2>
-
-            {% if cart_items %}
-            {% for item in cart_items %}
-            <div class="cart-item">
-                <span>{{ item.name }}</span>
-                <span>R$ {{ "%.2f"|format(item.price) }}</span>
-
-                <!-- REMOVER ITEM -->
-                <form action="/remove_from_cart/{{ item.id }}" method="POST">
-                    <button class="btn-remove">X</button>
-                </form>
-            </div>
-            {% endfor %}
-
-            <p class="total">Total: R$ {{ "%.2f"|format(total) }}</p>
-
-            <!-- FINALIZAR COMPRA -->
-            <form action="/checkout" method="POST">
-                <button class="btn-final">Finalizar Compra</button>
-            </form>
-
-            {% else %}
-            <p class="empty">Carrinho vazio.</p>
-            {% endif %}
-        </section>
-
+    <div style="text-align:right; margin-bottom:20px;">
+        <a href="/cart">
+            <button style="padding:10px 15px; cursor:pointer;">🛒 Ver Carrinho</button>
+        </a>
     </div>
 
-</body>
 
-</html>
+    <div class="products">
+        {% for product in products %}
+        <div class="product">
+            <h3>{{ product.name }}</h3>
+            <p class="price">R$ {{ product.price }}</p>
+
+            <form action="/add_to_cart/{{ product.id }}" method="POST">
+                <button>Adicionar ao carrinho</button>
+            </form>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

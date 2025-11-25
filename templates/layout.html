@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tech Store</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+    <div class="navbar">
+        <div class="logo">Tech Store</div>
+
+        <div>
+            <a href="/">Home</a>
+            <a href="/cart">Carrinho</a>
+
+            {% if current_user.is_authenticated %}
+            {% if current_user.is_admin %}
+            <a href="/admin">Admin</a>
+            {% endif %}
+            <a href="/logout">Sair</a>
+            {% else %}
+            <a href="/login">Entrar</a>
+            {% endif %}
+        </div>
+    </div>
+
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <div class="popup">{{ messages[0] }}</div>
+    {% endif %}
+    {% endwith %}
+
+    {% block content %}{% endblock %}
+
+</body>
+
+</html>

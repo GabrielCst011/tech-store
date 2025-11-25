@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <h1 class="logo">Mercadinho Online</h1>
+        <div class="nav-links">
+            <a href="/">Produtos</a>
+            <a href="/cart" class="active">Carrinho</a>
+            {% if current_user.is_authenticated %}
+            <span class="welcome">Olá, {{ current_user.username }}</span>
+            <a class="logout" href="/logout">Sair</a>
+            {% else %}
+            <a href="/login">Login</a>
+            {% endif %}
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <h2 class="page-title">🛒 Seu Carrinho</h2>
+
+        {% if cart_items %}
+        <div class="cart-list">
+
+            {% for item in cart_items %}
+            <div class="cart-card">
+                <h3>{{ item.name }}</h3>
+                <p class="price">R$ {{ '%.2f'|format(item.price) }}</p>
+
+                <form action="/remove_from_cart/{{ item.id }}" method="POST">
+                    <button class="btn-remove">Remover</button>
+                </form>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="cart-summary">
+            <h3>Total: <span>R$ {{ '%.2f'|format(total) }}</span></h3>
+
+            <form action="/checkout" method="POST">
+                <button class="btn-checkout">Finalizar Compra</button>
+            </form>
+
+            <a href="/" class="btn-back">⟵ Continuar Comprando</a>
+        </div>
+
+        {% else %}
+
+        <div class="empty-cart">
+            <p>Seu carrinho está vazio 😕</p>
+            <a href="/" class="btn-back">Começar a comprar</a>
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</body>
+
+</html>

@@ -1,16 +1,15 @@
-{% extends "base.html" %}
+{% extends "layout.html" %}
+
 {% block content %}
+<div class="container" style="max-width:400px;">
+    <h2>Criar Conta</h2>
 
-<h2>Registrar</h2>
+    <form method="POST">
+        <input type="text" name="username" placeholder="Usuário">
+        <input type="password" name="password" placeholder="Senha">
+        <button>Cadastrar</button>
+    </form>
 
-<form method="POST">
-    Usuário:<br>
-    <input type="text" name="username"><br><br>
-
-    Senha:<br>
-    <input type="password" name="password"><br><br>
-
-    <button type="submit">Criar conta</button>
-</form>
-
+    <p>Já tem conta? <a href="/login">Entrar</a></p>
+</div>
 {% endblock %}
