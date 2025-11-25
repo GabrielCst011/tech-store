@@ -1,0 +1,114 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #0d0d0d;
+    color: #e6e6e6;
+}
+
+header {
+    background: #111;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 3px solid #0ff;
+}
+
+.logo {
+    color: #0ff;
+    font-size: 32px;
+    margin: 0;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.products,
+.cart {
+    width: 45%;
+    background: #1a1a1a;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid #0ff;
+    box-shadow: 0 0 15px #0ff;
+}
+
+h2 {
+    color: #0ff;
+    border-bottom: 1px solid #0ff;
+    padding-bottom: 10px;
+}
+
+.product-card {
+    background: #0f0f0f;
+    border: 1px solid #0ff;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+}
+
+.price {
+    font-size: 18px;
+    color: #0f0;
+}
+
+.btn {
+    background: #0ff;
+    color: #000;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.btn:hover {
+    background: #00cccc;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    background: #0f0f0f;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #0ff;
+}
+
+.btn-remove {
+    background: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.btn-final {
+    background: #0f0;
+    color: #000;
+    width: 100%;
+    padding: 12px;
+    cursor: pointer;
+    border: none;
+    font-size: 16px;
+    margin-top: 15px;
+    border-radius: 5px;
+}
+
+.empty {
+    text-align: center;
+    color: #777;
+}
+
+.total {
+    font-size: 20px;
+    margin-top: 15px;
+    color: #0f0;
+    text-align: center;
+}
