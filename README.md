@@ -67,7 +67,7 @@ tech-store/
 
 Clone o repositório:
 
-git clone https://github.com/SEU-USUARIO/tech-store-python.git
+git clone [https://github.com/SEU-USUARIO/tech-store-python.git](https://github.com/GabrielCst011/tech-store.git]
 
 
 Entre na pasta:
